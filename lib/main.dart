@@ -13,30 +13,28 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => NewsArticleListViewModel(),
-      child: MaterialApp(
-        title: "News App",
-        theme: ThemeData(
-            // primarySwatch: Colors.teal,
-            ),
-
-        // body: const Text("Latest News will be displayed here"),
-        home: NewsList(),
-      ),
-    );
-    // MaterialApp(
-    //   title: "News App",
-    //   theme:ThemeData(
-    //     // primarySwatch: Colors.teal,
-    //   ),
+    // return ChangeNotifierProvider(
+    //   create: (context) => NewsArticleListViewModel(),
+    //   child: MaterialApp(
+    //     title: "News App",
+    //     theme: ThemeData(
+    //         // primarySwatch: Colors.teal,
+    //         ),
 
     //     // body: const Text("Latest News will be displayed here"),
-    //     home:ChangeNotifierProvider(
-    //       create: (context) => NewsArticleListViewModel(),
-    //       child:  NewsList(),
-    //     ),
-
+    //     home: NewsList(),
+    //   ),
     // );
+    return MaterialApp(
+      title: "News App",
+      theme: ThemeData(
+          // primarySwatch: Colors.teal,
+          ),
+      debugShowCheckedModeBanner: false,
+      home: ChangeNotifierProvider(
+        create: (context) => NewsArticleListViewModel(),
+        child: NewsList(),
+      ),
+    );
   }
 }
