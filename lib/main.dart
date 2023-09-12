@@ -33,7 +33,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider(
         create: (context) => NewsArticleListViewModel(),
-        child: const NewsListPage(),
+        child:  NewsListPage(),
       ),
     );
   }

@@ -4,7 +4,7 @@ import "package:news_app_practice/widgets/news_list.dart";
 import "package:provider/provider.dart";
 
 class NewsListPage extends StatefulWidget {
-  const NewsListPage({super.key});
+  NewsListPage({super.key});
   @override
   State<NewsListPage> createState() => _NewsListPageState();
 }
@@ -18,6 +18,21 @@ class _NewsListPageState extends State<NewsListPage> {
     Provider.of<NewsArticleListViewModel>(context, listen: false)
         .populateTopHeadlines();
   }
+
+  // Widget myBuildListWidget(NewsArticleListViewModel value) {
+  //   switch (value.loadingStatus) {
+  //     case LoadingStatus.searching:
+  //       return const Align(child: CircularProgressIndicator());
+  //     case LoadingStatus.empty:
+  //       return const Align(
+  //         child: Text("No result found.."),
+  //       );
+  //     case LoadingStatus.completed:
+  //       return Expanded(
+  //         child: NewsList(newsArticleList: value.articles),
+  //       );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +51,7 @@ class _NewsListPageState extends State<NewsListPage> {
                 controller: _controller,
                 onSubmitted: (val) {
                   print("value of entered text is: $val");
-                  if (val.isEmpty ==  false) {
+                  if (val.isEmpty == false) {
                     value.search(val);
                   }
                 },
