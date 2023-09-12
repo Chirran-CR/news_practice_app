@@ -1,29 +1,20 @@
-import "package:flutter/material.dart";
-import "package:news_app_practice/viewModels/news_article_list_view_model.dart";
-import "package:provider/provider.dart";
 
-class NewsList extends StatelessWidget {
-  // NewsList({super.key}) {
-  //   _newsArticleListViewModel.populateTopHeadlines();
-  // }
+import 'package:flutter/material.dart';
+import 'package:news_app_practice/viewModels/news_article_view_model.dart';
+
+class NewsList extends StatelessWidget{
+
+  final List<NewsArticleViewModel> newsArticleList;
+
+  const NewsList({required this.newsArticleList, super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // final nvm = Provider.of<NewsArticleListViewModel>(context, listen: true);
-    // print("val of nvm.articles is: ${nvm.articles.length}");
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Latest News"),
-        backgroundColor: Colors.blueAccent,
-      ),
-      body: Consumer<NewsArticleListViewModel>(
-        builder: (context, value, child) {
-          // print("vla of value is ${value.articles}");
-          return ListView.builder(
-            itemCount: value.articles.length,
+  Widget build(BuildContext context){
+    return ListView.builder(
+            itemCount: newsArticleList.length,
             itemBuilder: (context, index) {
               // print("vla ${value.articles[index].title}");
-              final singleArticle = value.articles[index];
+              final singleArticle = newsArticleList[index];
               final String articleTitle = singleArticle.title.length > 45
                   ? "${singleArticle.title.substring(0, 45)}..."
                   : singleArticle.title;
@@ -55,20 +46,5 @@ class NewsList extends StatelessWidget {
               );
             },
           );
-        },
-      ),
-    );
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: const Text("Latest News"),
-    //   ),
-    //   body: ListView.builder(
-    //       itemCount: nvm.articles.length,
-    //       itemBuilder: (context, index) {
-    //         return ListTile(
-    //           title: Text(nvm.articles[index].title),
-    //         );
-    //       }),
-    // );
   }
 }

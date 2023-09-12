@@ -9,7 +9,7 @@ class NewsArticleViewModel {
     return _newsArticle.title;
   }
 
-  String get description {
+  String? get description {
     return _newsArticle.description;
   }
 

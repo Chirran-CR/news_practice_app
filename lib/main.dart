@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:news_app_practice/pages/news_list.dart";
+import 'package:news_app_practice/pages/news_list_page.dart';
 import "package:news_app_practice/services/web_services.dart";
 import "package:news_app_practice/viewModels/news_article_list_view_model.dart";
 import "package:provider/provider.dart";
@@ -33,7 +33,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider(
         create: (context) => NewsArticleListViewModel(),
-        child: NewsList(),
+        child: const NewsListPage(),
       ),
     );
   }

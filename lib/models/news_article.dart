@@ -1,6 +1,6 @@
 class NewsArticle {
   final String title;
-  final String description;
+  final String? description;
   final String url;
   final String? urlToImage;
 
